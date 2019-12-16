@@ -1,0 +1,11 @@
+from random import randint
+maior = menor = n1 = randint(0, 20)
+n2 = randint(0, 20)
+n3 = randint(0, 20)
+n4 = randint(0, 20)
+n5 = randint(0, 20)
+numeros = (n1, n2, n3, n4, n5)
+print(numeros)
+ordem = numeros.sort(key = int)
+print(f'Maior número sorteado: {ordem[0]}')
+print(f'Menor número sorteado: {ordem[-1]}')
