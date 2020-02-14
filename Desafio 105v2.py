@@ -5,22 +5,15 @@ def notas(*n, sit=False):
     :param sit: (Opcional) Se deve mostrar ou não mostrar a situação do aluno
     :return: Dicionário com várias informações sobre a situação do aluno
     """
-    maior = menor = n[0]
-    for nota in n:
-        if nota > maior:
-            maior = nota
-        if nota < menor:
-            menor = nota
-    media = sum(n)/len(n)
-    resp = {'total': len(n), 'maior': maior, 'menor': menor, 'média': media}
+    resp = {'total': len(n), 'maior': max(n), 'menor': min(n), 'média': sum(n)/len(n)}
     if sit:
-        if media < 0 or media > 10:
+        if resp['média'] > 10 or resp['média'] < 0:
             resp['situação'] = 'Foram inseridas notas inválidas'
-        elif media < 5:
+        elif resp['média'] < 5:
             resp['situação'] = 'ruim'
-        elif media < 7.5:
+        elif resp['média'] < 7.5:
             resp['situação'] = 'boa'
-        elif media < 10:
+        elif resp['média'] < 10:
             resp['situação'] = 'excelente'
     return resp
 
