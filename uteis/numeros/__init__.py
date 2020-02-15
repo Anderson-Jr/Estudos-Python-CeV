@@ -1,19 +1,21 @@
-def dobro(n=0):
+def dobro(n=0, formato=False):
     """
     -> Calucla o dobro de um valor
     :param n: Valor a ser dobrado
     :return: Dobro de n
     """
-    return n * 2
+    res = n * 2
+    return res if formato is False else moeda(res)
 
 
-def triplo(n=0):
+def triplo(n=0, formato=False):
     """
     -> Calcula o triplo de um valor
     :param n: Valor a ser triplicado
     :return: O triplo de n
     """
-    return n * 3
+    res = n * 3
+    return res if formato is False else moeda(res)
 
 
 def fatorial(n=0):
@@ -28,16 +30,17 @@ def fatorial(n=0):
     return f
 
 
-def metade(n=0):
+def metade(n=0, formato=False):
     """
     -> Calcula a metade do número
     :param n: Número a ser dividido por 2
     :return: A metade de n
     """
-    return n/2
+    res = n/2
+    return res if formato is False else moeda(res)
 
 
-def aumento(n=0, porc=0):
+def aumentar(n=0, porc=0, formato=False):
     """
     -> Calcula uma porcentagem de aumento para n
     :param n: Valor a ser aumentado
@@ -45,8 +48,21 @@ def aumento(n=0, porc=0):
     :return: O valor n após sofrer um aumento de porc% (por cento)
     """
     n *= (1 + porc / 100)
-    n = round(n, 2)
-    return n
+    res = round(n, 2)
+    return res if formato is False else moeda(res)
+
+
+def diminuir(n=0, porc=0, formato=False):
+    """
+    -> Diminui uma porcentagem de n
+    :param n: Valor a ser diminuído
+    :param porc: porcentagem para diminuir de n
+    :param formato: Se o valor de n deve ser formatado para algum tipo de moeda (Ex: 100 -> R$100,00 ou U$100,00)
+    :return: Retorna o valor de n após diminuído
+    """
+    n -= (n * porc/100)
+    res = round(n, 2)
+    return res if formato is False else moeda(res)
 
 
 def moeda(preco=0, moeda='R$'):
