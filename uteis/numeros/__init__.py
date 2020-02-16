@@ -73,3 +73,22 @@ def moeda(preco=0, moeda='R$'):
     :return: Simbolo da Moeda + valor
     """
     return f'{moeda}{preco}'.replace('.', ',')
+
+
+def resumo(preco, aumento=10, reducao=5):
+    """
+    -> Faz um resumo do preço de um produto
+    :param preco: Valor do produto
+    :param aumento: Porcentagem de aumento
+    :param reducao: POrcentagem de redução
+    :return: Tabela detalhada dos preços
+    """
+    print('=-' * 15)
+    print('RESUMO DO VALOR'.center(30))
+    print('=-' * 15)
+    print(f'Preço analisado: \t{moeda(preco)}')
+    print(f'Dobro do preço: \t{dobro(preco, True)}')
+    print(f'Metade do preço: \t{metade(preco, True)}')
+    print(f'{aumento}% de aumento: \t{aumentar(preco, aumento, True)}')
+    print(f'{reducao}% de redução: \t{diminuir(preco, reducao, True)}')
+    print('=-' * 15)
